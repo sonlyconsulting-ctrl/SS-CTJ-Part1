@@ -25,8 +25,21 @@ record('Part 1 welcome renders', await page.getByRole('heading', { name: 'Buildi
 await page.getByTestId('begin-part1').click();
 record('Day view opens', await page.getByTestId('day-view').isVisible());
 
+const dayTitles = [
+  'What Is Logic?',
+  'Thinking in Statements',
+  'Truth vs Belief',
+  'Deductive & Inductive Reasoning',
+  'The Power of a Premise',
+  'What Is Bias?',
+  'Confirmation Bias',
+  'Availability Heuristic',
+  'Ad Hominem & Straw Man',
+  'False Dilemmas & Red Herrings'
+];
+
 for (let day = 1; day <= 10; day += 1) {
-  record('Day ' + day + ' heading renders', (await page.locator('body').innerText()).includes('Day ' + day));
+  record('Day ' + day + ' heading renders', await page.getByRole('heading', { name: dayTitles[day - 1] }).isVisible());
 
   const coreIds = ['d' + day + '-map', 'd' + day + '-p1', 'd' + day + '-p2', 'd' + day + '-p3'];
   for (const id of coreIds) {
