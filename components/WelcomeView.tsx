@@ -54,7 +54,7 @@ export const WelcomeView: React.FC = () => {
           {started ? 'Continue Part 1' : 'Begin Part 1'} <ArrowRight size={18} />
         </button>
         <p className="text-xs text-center text-ctj-muted mt-3">
-          Progress is stored in this browser in the candidate product-core baseline.
+          Progress is stored in this browser in this local version.
         </p>
       </div>
     </div>
