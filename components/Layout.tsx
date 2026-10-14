@@ -83,6 +83,9 @@ export const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) =>
           <div>
             <div className="font-semibold">The Critical Thinker's Journey™</div>
             <div className="text-ctj-muted mt-1">Part 1 · Building Clarity and Confidence</div>
+            <div className="text-xs text-ctj-muted mt-2">
+              Support: <a href="mailto:support.sonlyconsulting@gmail.com" className="hover:text-ctj-platinum underline">support.sonlyconsulting@gmail.com</a>
+            </div>
           </div>
           <div className="flex md:justify-center gap-4">
             <button onClick={() => dispatch({ type: 'SET_VIEW', payload: 'guide' })} className="text-ctj-silver hover:text-ctj-platinum focus-ring rounded">User Guide</button>

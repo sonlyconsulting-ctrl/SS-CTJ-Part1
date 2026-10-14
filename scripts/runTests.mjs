@@ -2,7 +2,8 @@ import { spawn } from 'node:child_process';
 
 function run(command, args) {
   return new Promise((resolve, reject) => {
-    const child = spawn(command, args, { stdio: 'inherit', shell: false });
+    const cmd = process.platform === 'win32' ? `${command}.cmd` : command;
+    const child = spawn(cmd, args, { stdio: 'inherit', shell: process.platform === 'win32' });
     child.on('exit', (code) => code === 0 ? resolve() : reject(new Error(command + ' exited ' + code)));
   });
 }
@@ -10,9 +11,10 @@ function run(command, args) {
 await run('npm', ['run', 'build']);
 await run('npm', ['run', 'test:content']);
 
-const preview = spawn('./node_modules/.bin/vite', ['preview', '--host', '127.0.0.1', '--port', '4173'], {
+const viteCmd = process.platform === 'win32' ? '.\\node_modules\\.bin\\vite.cmd' : './node_modules/.bin/vite';
+const preview = spawn(viteCmd, ['preview', '--host', '127.0.0.1', '--port', '4173'], {
   stdio: 'inherit',
-  shell: false
+  shell: process.platform === 'win32'
 });
 
 try {

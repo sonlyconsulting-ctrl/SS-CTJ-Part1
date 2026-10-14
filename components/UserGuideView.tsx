@@ -43,6 +43,16 @@ export const UserGuideView: React.FC = () => {
         <GuideCard icon={<Sparkles />} title="Thinking Partner">Local deterministic prompts can challenge your reasoning. They do not score intelligence or make conclusions for you.</GuideCard>
         <GuideCard icon={<Download />} title="Export">At completion, keep PDF, JSON, or TXT copies outside the browser.</GuideCard>
       </div>
+
+      <section className="panel-dark text-sm text-ctj-silver">
+        <h2 className="font-semibold text-ctj-platinum">Questions & Support</h2>
+        <p className="mt-1 text-ctj-muted">
+          For technical assistance, feedback, or member inquiries, contact{' '}
+          <a href="mailto:support.sonlyconsulting@gmail.com" className="text-ctj-blue hover:text-ctj-platinum underline">
+            support.sonlyconsulting@gmail.com
+          </a>.
+        </p>
+      </section>
     </div>
   );
 };

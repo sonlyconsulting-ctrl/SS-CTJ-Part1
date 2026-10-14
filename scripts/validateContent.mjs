@@ -5,7 +5,7 @@ const readme = fs.readFileSync('README.md', 'utf8');
 const combined = [constants, readme].join('\n');
 const failures = [];
 
-const dayMatches = [...constants.matchAll(/day: (\d+),\n\s+week:/g)];
+const dayMatches = [...constants.matchAll(/day:\s*(\d+),\s*\r?\n\s*week:/g)];
 if (dayMatches.length !== 10) failures.push('expected 10 days, found ' + dayMatches.length);
 
 const dayIds = dayMatches.map((match) => Number(match[1]));
